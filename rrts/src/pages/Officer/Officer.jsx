@@ -1,8 +1,5 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-
-import './Officer.css'
-
 import { UserAuth } from "../../context/context";
 
 const Officer = () => {
