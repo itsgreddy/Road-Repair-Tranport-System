@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-// import { firebase } from "firebase"
+import { getFirestore } from "firebase/firestore"
 
 // Web app's Firebase configuration
 const firebaseConfig = {
@@ -12,16 +12,19 @@ const firebaseConfig = {
     appId: "1:583240128986:web:83691b47c44a6d3d8148e3"
 };
 
-const secondaryAppConfig = {
-    projectId: "supervisor-83892",
-    appId: "1:686005554701:web:3e6685c881802d2ba54f44",
-    apiKey: "AIzaSyAYwMmcgHdKoQhbRqvKJPBbXUEZBjGHyzk",
-    storageBucket: "supervisor-83892.appspot.com",
-    // databaseURL: "...",
-};
+// const secondaryAppConfig = {
+//     projectId: "supervisor-83892",
+//     appId: "1:686005554701:web:3e6685c881802d2ba54f44",
+//     apiKey: "AIzaSyAYwMmcgHdKoQhbRqvKJPBbXUEZBjGHyzk",
+//     storageBucket: "supervisor-83892.appspot.com",
+//     // databaseURL: "...",
+// };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const secondaryApp = initializeApp(secondaryAppConfig, "secondary");
+// const secondaryApp = initializeApp(secondaryAppConfig, "secondary");
 
-export const auth = getAuth(app, secondaryApp);
+// export const auth = getAuth(app, secondaryApp);
+export const auth = getAuth(app);
+
+export const db = getFirestore(app)
