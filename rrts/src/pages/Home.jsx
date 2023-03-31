@@ -107,7 +107,7 @@ export default function Home() {
         </Link>
         <Link to="/officer">
           <button>Community Officer</button>
-        </Link>
+        </Link> 
         <Link to="/supervisor">
           <button>Supervisor</button>
         </Link>
