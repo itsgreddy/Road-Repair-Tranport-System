@@ -114,6 +114,9 @@ export default function Home() {
       </div> */}
 
       <div className="bg-gray-300 p-6 space-y-3">
+        <h1 className="flex justify-center h-20 items-center font-bold text-3xl">
+          Road Repairs
+        </h1>
         {sortedComplaints.map((complain) => (
           <div
             className={

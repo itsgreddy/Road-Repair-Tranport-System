@@ -20,9 +20,17 @@ const Officer = () => {
       </h1>
       <div className="flex justify-center h-55 items-center">
         {user?.displayName ? (
+          <>
           <button className="p-3 font-bold text-3xl" onClick={handleSignOut}>
             LogOut
           </button>
+          <Link
+            className="bg-emerald-500 rounded p-3 text-white font-bold text-3xl"
+            to="/supervisorsignin"
+          >
+            Access
+          </Link>
+          </>
         ) : (
           <Link
             className="bg-emerald-500 rounded p-3 text-white font-bold text 5xl"

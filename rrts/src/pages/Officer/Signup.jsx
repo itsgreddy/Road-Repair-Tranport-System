@@ -38,7 +38,7 @@ const Signup = () => {
   }, [user]);
 
   return (
-    <div className="bg-teal-500 h-screen">
+    <div className="bg-gray-300 h-screen">
       <div className="max-w-[700px] mx-auto py-20 p-4">
         <div>
           <h1 className="text-2xl font-bold py-2">
