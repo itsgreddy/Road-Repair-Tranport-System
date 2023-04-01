@@ -14,7 +14,7 @@ const Officer = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4 bg-gray-300 h-screen">
       <h1 className="flex justify-center h-20 items-center font-bold text-3xl">
         Community Officer
       </h1>
