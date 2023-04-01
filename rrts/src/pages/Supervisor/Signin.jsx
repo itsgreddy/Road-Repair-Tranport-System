@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { GoogleButton } from "react-google-button";
 import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../../context/context";
 
-const Signin = () => {
+const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const { createUser, googleSignIn, user } = UserAuth();
   const navigate = useNavigate();
-  const { signIn, googleSignIn, user } = UserAuth();
 
   const handleGoogleSignIn = async () => {
     try {
@@ -23,7 +23,7 @@ const Signin = () => {
     e.preventDefault();
     setError("");
     try {
-      await signIn(email, password);
+      await createUser(email, password);
       navigate("/supervisormain");
     } catch (e) {
       setError(e.message);
@@ -38,14 +38,16 @@ const Signin = () => {
   }, [user]);
 
   return (
-    <div>
-      <div className="max-w-[700px] mx-auto my-16 p-4">
+    <div className="bg-teal-500 h-screen">
+      <div className="max-w-[700px] mx-auto py-20 p-4">
         <div>
-          <h1 className="text-2xl font-bold py-2">Sign in to your account</h1>
+          <h1 className="text-2xl font-bold py-2">
+            Sign up for a free account
+          </h1>
           <p className="py-2">
-            Don't have an account yet?{" "}
-            <Link to="/supervisorsignup" className="underline">
-              Sign up.
+            Already have an account yet?{" "}
+            <Link to="/supervisorsignin" className="underline">
+              Sign in.
             </Link>
           </p>
         </div>
@@ -66,14 +68,14 @@ const Signin = () => {
               type="password"
             />
           </div>
-          <button className="border border-blue-500 bg-blue-600 hover:bg-blue-500 w-full p-4 my-2 text-white">
-            Sign In
+          <button className="border border-gray-500 bg-gray-800 w-full p-4 my-2 text-white">
+            Sign Up
           </button>
         </form>
       </div>
       <div>
-        <h1 className="text-center text-3xl font-bold py-8">Sign in</h1>
-        <div className="max-w-[240px] m-auto py-4">
+        {/* <h1 className="text-center text-3xl font-bold py-8">Sign Up</h1> */}
+        <div className="max-w-[240px] m-auto">
           <GoogleButton onClick={handleGoogleSignIn} />
         </div>
       </div>
@@ -81,4 +83,4 @@ const Signin = () => {
   );
 };
 
-export default Signin;
+export default Signup;
