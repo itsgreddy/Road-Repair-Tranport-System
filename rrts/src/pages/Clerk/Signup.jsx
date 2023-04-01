@@ -68,7 +68,7 @@ const Signup = () => {
               type="password"
             />
           </div>
-          <button className="border border-gray-500 bg-gray-800 w-full p-4 my-2 text-white">
+          <button className="border border-gray-500 bg-gray-800 w-full p-4 my-2 font-bold text-white">
             Sign Up
           </button>
         </form>
