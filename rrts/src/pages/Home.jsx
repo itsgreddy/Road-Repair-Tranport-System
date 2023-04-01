@@ -113,7 +113,7 @@ export default function Home() {
         </Link>
       </div> */}
 
-      <div className="p-6 space-y-3">
+      <div className="bg-gray-300 p-6 space-y-3">
         {sortedComplaints.map((complain) => (
           <div
             className={
