@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { UserAuth } from "../context/context";
+// import logo from "../assets/logo.jpg";
 
 const Navbar = () => {
   const { user, logOut } = UserAuth();
@@ -18,6 +19,7 @@ const Navbar = () => {
       <div className="flex justify-between w-full p-4">
         <h1 className="text-center text-2xl font-bold">
           <Link to="/">Road Repair & Transport System</Link>
+          {/* <img src={logo} /> */}
         </h1>
         <div className="flex gap-3 ">
           <Link to="/clerk">
