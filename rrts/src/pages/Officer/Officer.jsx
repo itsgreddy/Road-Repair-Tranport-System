@@ -15,7 +15,7 @@ const Officer = () => {
 
   return (
     <div className="p-4">
-      <h1 className="flex justify-center h-20 items-center font-bold text-3x1">
+      <h1 className="flex justify-center h-20 items-center font-bold text-3xl">
         Community Officer
       </h1>
       <div className="flex justify-center h-55 items-center">
@@ -25,10 +25,10 @@ const Officer = () => {
           </button>
         ) : (
           <Link
-            className="bg-emerald-500 rounded p-3 text-white font-bold text 5x1"
+            className="bg-emerald-500 rounded p-3 text-white font-bold text 5xl"
             to="/officersignin"
           >
-            Sign Up
+            Access
           </Link>
         )}
       </div>

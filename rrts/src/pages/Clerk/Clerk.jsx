@@ -15,20 +15,20 @@ const Clerk = () => {
 
   return (
     <div className="p-4">
-      <h1 className="flex justify-center h-20 items-center font-bold text-3x1">
+      <h1 className="flex justify-center h-20 items-center font-bold text-3xl">
         Clerk
       </h1>
       <div className="flex justify-center h-55 items-center">
         {user?.displayName ? (
-          <button className="p-3 font-bold text-3x1" onClick={handleSignOut}>
+          <button className="p-3 font-bold text-3xl" onClick={handleSignOut}>
             LogOut
           </button>
         ) : (
           <Link
-            className="bg-emerald-500 rounded p-3 text-white font-bold text 5x1"
+            className="bg-emerald-500 rounded p-3 text-white font-bold text 5xl"
             to="/clerksignin"
           >
-            Sign Up
+            Access
           </Link>
         )}
       </div>
