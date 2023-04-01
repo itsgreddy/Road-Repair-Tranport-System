@@ -122,11 +122,11 @@ export default function Home() {
                 : "bg-red-900 p-3 text-white rounded "
             }
           >
-            <h1>{complain.priority}</h1>
-            <span className="font-bold">Location: </span>
+            <h1 className="font-bold">Priority : {complain.priority}</h1>
+            <span className="font-bold">Location : </span>
             <h1 Style="display:inline">{complain.location}</h1>
             <br />
-            <span className="font-bold">id: </span>
+            <span className="font-bold">ID : </span>
             <h1 Style="display:inline"> {complain.id}</h1>
           </div>
         ))}
