@@ -101,7 +101,7 @@ export default function Home() {
 
   return (
     <>
-      <div>
+      {/* <div>
         <Link to="/clerk">
           <button>Clerk</button>
         </Link>
@@ -111,13 +111,15 @@ export default function Home() {
         <Link to="/supervisor">
           <button>Supervisor</button>
         </Link>
-      </div>
+      </div> */}
 
       <div className="p-6 space-y-3">
         {sortedComplaints.map((complain) => (
           <div
             className={
-              complain.completeStatus? "bg-green-900 p-3 text-white rounded": "bg-red-900 p-3 text-white rounded "
+              complain.completeStatus
+                ? "bg-green-900 p-3 text-white rounded"
+                : "bg-red-900 p-3 text-white rounded "
             }
           >
             <h1>{complain.priority}</h1>

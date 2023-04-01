@@ -5,16 +5,15 @@ import { getDoc, doc, updateDoc } from "firebase/firestore";
 // import { async } from '@firebase/util';
 
 const Account = () => {
+  const { logOut, user } = UserAuth();
 
-  const {logOut, user} = UserAuth();
-
-  const handleSignOut = async() => {
-    try{
-        await logOut()
+  const handleSignOut = async () => {
+    try {
+      await logOut();
     } catch (error) {
-        console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   const [inventory, setInventory] = useState({});
   const [workers, setWorkers] = useState(0);
@@ -45,47 +44,48 @@ const Account = () => {
 
   useEffect(() => {
     getInventory();
-  },[]);
+  }, []);
 
   return (
-    <div className=''>
-      <h1 className=''>Account</h1>
-      <div>
-        <p>Welcome, {user?.displayName}</p>
-      </div>
-      <button onClick={handleSignOut} className=''>
-        Logout
-      </button>
-
-      <div className="p-6 flex flex-col items-center">
-      <div className="flex px-6 space-x-28">
-        <div>
-          <span className="font-bold">Available Workers: </span>
-          <span>{inventory.workers}</span>
+    <div className="p-4 h-screen space-y-3 bg-teal-500">
+      <div className="flex p-4 rounded justify-between  text-white">
+        <div className=" font-bold text-2xl">
+          <p>Welcome, {user?.displayName}</p>
         </div>
-        <div>
-          <span className="font-bold">Available Materials: </span>
-          <span>{inventory.materials}</span>
-        </div>
-      </div>
-      <div className="p-6 space-x-6 space-y-3">
-        <input
-          type="number"
-          placeholder="workers"
-          className="border-2 border-solid p-2"
-          onChange={(e) => setWorkers(e.target.value)}
-        />
-        <input
-          type="number"
-          placeholder="materials"
-          className="border-2 border-solid p-2"
-          onChange={(e) => setMaterials(e.target.value)}
-        />
-        <button className="p-2" onClick={update}>
-          Update
+        <button onClick={handleSignOut} className="p-2 bg-gray-800 border border-gray-800">
+          Logout
         </button>
       </div>
-    </div>
+
+      <div className="p-6 flex flex-col items-center">
+        <div className="flex px-6 space-x-28">
+          <div>
+            <span className="font-bold">Available Workers: </span>
+            <span>{inventory.workers}</span>
+          </div>
+          <div>
+            <span className="font-bold">Available Materials: </span>
+            <span>{inventory.materials}</span>
+          </div>
+        </div>
+        <div className="p-6 space-x-6 space-y-3">
+          <input
+            type="number"
+            placeholder="workers"
+            className="border-2 border-solid p-2"
+            onChange={(e) => setWorkers(e.target.value)}
+          />
+          <input
+            type="number"
+            placeholder="materials"
+            className="border-2 border-solid p-2"
+            onChange={(e) => setMaterials(e.target.value)}
+          />
+          <button className="p-2 bg-gray-800 border border-gray-800" onClick={update}>
+            Update
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

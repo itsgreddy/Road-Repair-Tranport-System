@@ -19,17 +19,23 @@ const Navbar = () => {
         <h1 className="text-center text-2xl font-bold">
           <Link to="/">Road Repair & Transport System</Link>
         </h1>
-       <div className="flex gap-3 ">
-        <Link to="/clerk">
-          <button className="p-2" >Clerk</button>
-        </Link>
-        <Link to="/officer">
-          <button className="p-2" >Community Officer</button>
-        </Link>
-        <Link to="/supervisor">
-          <button className="p-2" >Supervisor</button>
-        </Link>
-      </div>        
+        <div className="flex gap-3 ">
+          <Link to="/clerk">
+            <button className="bg-emerald-500 p-2 border border-emerald-800">
+              Clerk
+            </button>
+          </Link>
+          <Link to="/officer">
+            <button className="bg-emerald-500 p-2 border border-emerald-800">
+              Community Officer
+            </button>
+          </Link>
+          <Link to="/supervisor">
+            <button className="bg-emerald-500 p-2 border border-emerald-800">
+              Supervisor
+            </button>
+          </Link>
+        </div>
         {/* {user?.displayName ? (
         <button onClick={handleSignOut}>Logout</button>
       ) : (

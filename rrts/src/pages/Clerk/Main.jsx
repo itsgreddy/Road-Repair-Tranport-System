@@ -42,37 +42,40 @@ const Account = () => {
   };
 
   return (
-    <div className="">
-      <h1 className="">Account</h1>
-      <div>
-        <p>Welcome, {user?.displayName}</p>
+    <div className="p-4 h-screen bg-teal-500">
+      <div className="flex p-2 rounded justify-between text-white">
+        <div className="text-2xl font-bold">
+          <p>Welcome, {user?.displayName}</p>
+        </div>
+        <button
+          onClick={handleSignOut}
+          className="p-2 bg-gray-800 border border-gray-800"
+        >
+          Logout
+        </button>
       </div>
-      <button onClick={handleSignOut} className="">
-        Logout
-      </button>
-
-      <div className="p-10  flex flex-col items-start ">
+      <div className="p-7 flex flex-col items-start">
         <div className="flex flex-col justify-around space-y-5 p-6">
           <input
-            className="border-2 border-solid p-2"
+            className="border-2 border-solid p-2 rounded-lg"
             type="text"
             id="loc-box"
             placeholder="location.."
             onChange={(e) => setLocation(e.target.value)}
           />
           <textarea
-            rows="10"
-            cols="75"
+            rows="15"
+            cols="80"
             id="text-box"
             placeholder="Enter your complait debscription...."
-            className="p-20 border-2 border-solid"
+            className="p-2 border-2 border-solid rounded-lg"
             onChange={(e) => setDescription(e.target.value)}
           ></textarea>
-          {/* <input className='border-2 border-solid p-2' type="number" placeholder='materials_number..' onChange={(e)=>setMatenum(e.target.value)}/>
-        <input className='border-2 border-solid p-2' type="number" placeholder='priority..' onChange={(e)=>setPrioritynum(e.target.value)} />
-        <input className='border-2 border-solid p-2' type="number" placeholder='workers_number..' onChange={(e)=>setWorkernum(e.target.value)}/> */}
         </div>
-        <button className="p-2" onClick={submitToDb}>
+        <button
+          className="p-2 bg-gray-800 flex justify-center items-center border border-gray-800"
+          onClick={submitToDb}
+        >
           submit
         </button>
       </div>

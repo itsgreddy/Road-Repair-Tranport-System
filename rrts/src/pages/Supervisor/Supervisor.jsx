@@ -1,30 +1,39 @@
-import React from 'react'
+import React from "react";
 import { Link } from "react-router-dom";
 import { UserAuth } from "../../context/context";
 
-const Supervisor = () => {
+const Officer = () => {
+  const { user, logOut } = UserAuth();
 
-  const {user, logOut} = UserAuth()
-
-  const handleSignOut = async() => {
-      try{
-          await logOut()
-      } catch (error) {
-          console.log(error)
-      }
-  }
+  const handleSignOut = async () => {
+    try {
+      await logOut();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
-    <div className="">
-      <h1>Supervisor</h1>
-      {user?.displayName ? (
-            <button onClick={handleSignOut}>Log Out</button> 
-            ) : (
-                <Link to='/supervisorsignin'>Sign Up</Link>
-            )}
+    <div className="p-4">
+      <h1 className="flex justify-center h-20 items-center font-bold text-3x1">
+        Supervisor
+      </h1>
+      <div className="flex justify-center h-55 items-center">
+        {user?.displayName ? (
+          <button className="p-3 font-bold text-3x1" onClick={handleSignOut}>
+            LogOut
+          </button>
+        ) : (
+          <Link
+            className="bg-emerald-500 rounded p-3 text-white font-bold text 5x1"
+            to="/supervisorsignin"
+          >
+            Sign Up
+          </Link>
+        )}
+      </div>
     </div>
+  );
+};
 
-  )
-}
-
-export default Supervisor
+export default Officer;
