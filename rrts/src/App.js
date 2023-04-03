@@ -26,7 +26,7 @@ import Protected from './components/Protected';
 
 function App() {
   return (
-    <div>
+    <div className='bg-gray-300 h-screen'>
       <AuthContextProvider>
         <Navbar />
         <Routes>
