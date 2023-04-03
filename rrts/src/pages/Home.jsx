@@ -76,7 +76,7 @@ export default function Home() {
   return (
     <>
 
-      <div className="bg-gray-300 p-6 space-y-3">
+      <div className="bg-gray-300 h-auto p-6 space-y-3">
         <h1 className="flex justify-center h-20 items-center font-bold text-3xl">
           Road Repair Status
         </h1>
