@@ -42,7 +42,7 @@ const Account = () => {
   };
 
   return (
-    <div className="p-4 h-auto bg-teal-500">
+    <div className="p-4 h-screen bg-teal-500">
       <div className="flex p-2 rounded justify-between text-white">
         <div className="text-2xl font-bold">
           <p>Welcome, {user?.displayName}</p>
