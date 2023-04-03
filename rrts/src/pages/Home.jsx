@@ -1,31 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { db } from "../firebase";
 import { getDocs, collection, getDoc, doc } from "firebase/firestore";
 
-// const Home = () => {
-//   return (
 
-//   )
-// }
-
-// export default Home
 
 export default function Home() {
   const complaintsCollection = collection(db, "complaints");
   const [sortedComplaints, setSortedComplaints] = useState([]);
-  // const [labourData,setLabourData] = useState({});
+
   const docRef = doc(db, "inventory", "ONE");
   let var1, var2;
   const getInventory = async () => {
     try {
       const docSnap = await getDoc(docRef);
       const filteredDoc = docSnap.data();
-      // setLabourData(filteredDoc);
+
       var1 = Number(filteredDoc.workers);
       var2 = Number(filteredDoc.materials);
-      // console.log(var1,var2)
-      // console.log(`filtered Doc ${typeof (filteredDoc)}`,filteredDoc);
+
     } catch (error) {
       console.error(error);
     }
@@ -37,39 +29,27 @@ export default function Home() {
     );
     let newarr1 = [];
     let newarr2 = [];
-    // let workers=Number(labourData.workers)
-    // let materials=Number(labourData.materials)
+
     let workers = var1;
     let materials = var2;
-    // console.log("this is makeschedule function")
-    // console.log(workers,materials);
-    //   temp.forEach(i => {
-    //     if ((workers-i.workers)>0 && ( materials-i.materials>0)) {
-    //        newarr1.push(i);
-    //        workers=workers-i.workers;
-    //        materials=materials-i.materials;
-    //     }else{
-    //        newarr2.push(i);
-    //     }
-    //  });
+
     console.log(temp);
 
-    temp.forEach((i) => {
-      console.log(typeof i.workers, i.workers);
-      if (workers - i.workers > 0 && materials - i.materials > 0) {
-        newarr1.push(i);
-        workers = workers - i.workers;
-        materials = materials - i.materials;
+    for (let index = 0; index < temp.length; index++) {
+      const element = temp[index];
+      console.log(element.workers_required,element.material_required)
+      if (workers - element.workers_required > 0 && materials - element.material_required > 0) {
+        newarr1.push(element);
+        workers = workers - element.workers_required;
+        materials = materials - element.material_required;
       } else {
-        newarr2.push(i);
-      }
-    });
-    //  console.log(newarr1);
-    //  console.log(newarr2);
+        newarr2.push(element);
+      }      
+    }
     let temp2 = newarr1.concat(newarr2);
-    //  console.log(temp2);
     setSortedComplaints(temp2);
   };
+
 
   const getComplaintslist = async () => {
     //Read Data ans set movie list
@@ -79,13 +59,7 @@ export default function Home() {
         ...doc.data(),
         id: doc.id,
       }));
-      // console.log(filteredData);
-      // setcomplaintsList(filteredData);
-      // let temp = filteredData.sort((a,b)=>(a.priority>b.priority)? 1 :(a.priority<b.priority)? -1 :0);
-      // setSortedComplaints(temp);
       makeSchedule(filteredData);
-      // console.log("This is getcomplain function ")
-      // console.log(temp);
     } catch (err) {
       console.error(err);
     }
@@ -101,17 +75,6 @@ export default function Home() {
 
   return (
     <>
-      {/* <div>
-        <Link to="/clerk">
-          <button>Clerk</button>
-        </Link>
-        <Link to="/officer">
-          <button>Community Officer</button>
-        </Link> 
-        <Link to="/supervisor">
-          <button>Supervisor</button>
-        </Link>
-      </div> */}
 
       <div className="bg-gray-300 p-6 space-y-3">
         <h1 className="flex justify-center h-20 items-center font-bold text-3xl">
