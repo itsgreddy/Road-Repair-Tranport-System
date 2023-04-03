@@ -38,7 +38,7 @@ const Signin = () => {
   }, [user]);
 
   return (
-    <div className="bg-gray-300 h-screen">
+    <div className="bg-gray-300 h-auto">
       <div className="max-w-[700px] mx-auto p-4 py-20">
         <div>
           <h1 className="text-2xl font-bold py-2">Sign in to your account</h1>
